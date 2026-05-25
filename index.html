@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mahmoud Abdullah | Chemical Engineering Portfolio</title>
+
+<!-- External Libraries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;600;700;800&family=Inter:wght@400;500;600&family=Geist:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<!-- External CSS -->
+<link rel="stylesheet" href="css/style.css"/>
+
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-primary-fixed": "#0d1c32",
+          "surface-container-low": "#191c1d",
+          "on-error": "#690005",
+          "surface-variant": "#323536",
+          "surface": "#111415",
+          "surface-container": "#1d2021",
+          "surface-tint": "#b9c7e4",
+          "secondary-container": "#14d1ff",
+          "surface-bright": "#373a3b",
+          "on-primary-container": "#74829d",
+          "on-tertiary": "#002e68",
+          "on-error-container": "#ffdad6",
+          "on-secondary": "#003543",
+          "outline-variant": "#44474d",
+          "inverse-on-surface": "#2e3132",
+          "on-surface": "#e1e3e4",
+          "background": "#111415",
+          "on-tertiary-fixed": "#001a41",
+          "surface-dim": "#111415",
+          "on-surface-variant": "#c5c6cd",
+          "primary-container": "#0a192f",
+          "outline": "#8f9097",
+          "secondary-fixed": "#b7eaff",
+          "secondary": "#a6e6ff",
+          "on-primary": "#233148",
+          "inverse-surface": "#e1e3e4",
+          "tertiary": "#adc7ff",
+          "primary-fixed": "#d6e3ff",
+          "error-container": "#93000a",
+          "on-primary-fixed-variant": "#39475f",
+          "surface-container-highest": "#323536",
+          "secondary-fixed-dim": "#4cd6ff",
+          "surface-container-lowest": "#0c0f10",
+          "on-secondary-fixed-variant": "#004e60",
+          "on-secondary-fixed": "#001f28",
+          "on-secondary-container": "#00566b",
+          "error": "#ffb4ab",
+          "primary-fixed-dim": "#b9c7e4",
+          "on-background": "#e1e3e4",
+          "tertiary-fixed-dim": "#adc7ff",
+          "inverse-primary": "#515f78",
+          "tertiary-container": "#00183c",
+          "on-tertiary-fixed-variant": "#004493",
+          "tertiary-fixed": "#d8e2ff",
+          "primary": "#b9c7e4",
+          "surface-container-high": "#282a2b",
+          "on-tertiary-container": "#177eff"
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"
+        },
+        fontFamily: {
+          "headline-sm": ["Hanken Grotesk"],
+          "body-md": ["Inter"],
+          "headline-md": ["Hanken Grotesk"],
+          "mono-data": ["Geist"],
+          "display-lg-mobile": ["Hanken Grotesk"],
+          "body-lg": ["Inter"],
+          "label-caps": ["Geist"],
+          "display-lg": ["Hanken Grotesk"]
+        },
+        fontSize: {
+          "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+          "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+          "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+          "mono-data": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}],
+          "display-lg-mobile": ["36px", {"lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+          "display-lg": ["52px", {"lineHeight": "1.05", "letterSpacing": "-0.025em", "fontWeight": "800"}]
+        }
+      }
+    }
+  }
+</script>
+</head>
+
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary/30 overflow-x-hidden">
+
+<!-- PAGE LOADER -->
+<div class="page-loader" id="pageLoader">
+  <div class="loader-ring mb-4"></div>
+  <span class="font-mono-data text-mono-data text-secondary tracking-widest">LOADING PORTFOLIO</span>
+</div>
+
+<!-- NAVBAR -->
+<header class="bg-surface/85 backdrop-blur-lg sticky top-0 z-50 border-b border-outline-variant/10 transition-all duration-300" id="navbar">
+  <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 md:px-16 py-4">
+    <div class="font-headline-sm text-headline-sm font-bold tracking-tight">
+      <span class="gradient-text">M.</span><span class="text-on-surface"> Abdullah</span>
+    </div>
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-8">
+      <a class="font-label-caps text-label-caps text-secondary border-b-2 border-secondary pb-1 active" href="#home">HOME</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors" href="#about">ABOUT</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors" href="#skills">SKILLS</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors" href="#courses">TRAINING</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors" href="#contact">CONTACT</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <!-- Theme Toggle -->
+      <button aria-label="Toggle theme" class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <div class="toggle-thumb"><span id="toggleIcon">🌙</span></div>
+      </button>
+      <!-- Download CV -->
+      <a class="hidden md:flex bg-secondary-container text-on-secondary-container px-5 py-2 font-label-caps text-label-caps rounded-lg hover:opacity-85 transition-opacity active:scale-95 items-center gap-2" href="Mahmoud_Abdullah_CV.pdf">
+        <span class="material-symbols-outlined text-[14px]">download</span>CV
+      </a>
+      <!-- Mobile Menu Btn -->
+      <button class="md:hidden text-on-surface-variant p-1" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu md:hidden bg-surface/95 border-t border-outline-variant/10" id="mobileMenu">
+    <div class="flex flex-col px-6 py-4 gap-4">
+      <a class="font-label-caps text-label-caps text-secondary" href="#home" onclick="toggleMobileMenu()">HOME</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="#about" onclick="toggleMobileMenu()">ABOUT</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="#skills" onclick="toggleMobileMenu()">SKILLS</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="#courses" onclick="toggleMobileMenu()">TRAINING</a>
+      <a class="font-label-caps text-label-caps text-on-surface-variant" href="#contact" onclick="toggleMobileMenu()">CONTACT</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ===== HERO SECTION ===== -->
+<section class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden px-6 md:px-16 molecule-bg" id="home">
+  <canvas id="particle-canvas"></canvas>
+  <div class="absolute inset-0 bg-gradient-to-b from-primary-container/30 via-transparent to-background/80 pointer-events-none z-0"></div>
+
+  <!-- Floating SVG molecules -->
+  <svg class="molecule absolute top-[15%] left-[8%] opacity-20" height="60" viewBox="0 0 80 80" width="60" style="animation-delay:0s">
+    <circle cx="40" cy="10" fill="none" r="6" stroke="#00D1FF" stroke-width="1.5"/>
+    <circle cx="68" cy="55" fill="none" r="6" stroke="#00D1FF" stroke-width="1.5"/>
+    <circle cx="12" cy="55" fill="none" r="6" stroke="#00D1FF" stroke-width="1.5"/>
+    <line stroke="#00D1FF" stroke-width="1" x1="40" x2="68" y1="10" y2="55"/>
+    <line stroke="#00D1FF" stroke-width="1" x1="40" x2="12" y1="10" y2="55"/>
+    <line stroke="#00D1FF" stroke-width="1" x1="68" x2="12" y1="55" y2="55"/>
+  </svg>
+  <svg class="molecule absolute top-[25%] right-[10%] opacity-15" height="50" viewBox="0 0 80 80" width="50" style="animation-delay:2s">
+    <circle cx="40" cy="40" fill="none" r="8" stroke="#adc7ff" stroke-width="1.5"/>
+    <circle cx="40" cy="40" fill="none" r="22" stroke="#adc7ff" stroke-width="0.8" stroke-dasharray="4 4"/>
+    <circle cx="62" cy="40" fill="#adc7ff" r="4"/>
+    <circle cx="18" cy="40" fill="#adc7ff" r="4"/>
+  </svg>
+  <svg class="molecule absolute bottom-[20%] left-[15%] opacity-15" height="45" viewBox="0 0 70 70" width="45" style="animation-delay:4s">
+    <polygon fill="none" points="35,5 65,55 5,55" stroke="#00D1FF" stroke-width="1.5"/>
+    <circle cx="35" cy="5" fill="#00D1FF" r="3"/>
+    <circle cx="65" cy="55" fill="#00D1FF" r="3"/>
+    <circle cx="5" cy="55" fill="#00D1FF" r="3"/>
+  </svg>
+  <svg class="molecule absolute bottom-[30%] right-[8%] opacity-10" height="40" viewBox="0 0 60 60" width="40" style="animation-delay:1.5s">
+    <line stroke="#adc7ff" stroke-width="1" x1="30" x2="50" y1="10" y2="30"/>
+    <line stroke="#adc7ff" stroke-width="1" x1="50" x2="30" y1="30" y2="50"/>
+    <line stroke="#adc7ff" stroke-width="1" x1="30" x2="10" y1="50" y2="30"/>
+    <line stroke="#adc7ff" stroke-width="1" x1="10" x2="30" y1="30" y2="10"/>
+    <circle cx="30" cy="10" fill="#adc7ff" r="3"/>
+    <circle cx="50" cy="30" fill="#adc7ff" r="3"/>
+    <circle cx="30" cy="50" fill="#adc7ff" r="3"/>
+    <circle cx="10" cy="30" fill="#adc7ff" r="3"/>
+  </svg>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 w-full max-w-6xl mx-auto">
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
+      <!-- Left: Text -->
+      <div class="flex-1 text-center lg:text-left">
+        <div class="fade-in-up visible">
+          <span class="font-label-caps text-label-caps text-secondary tracking-[0.25em] block mb-4 uppercase">Chemical Engineering</span>
+        </div>
+        <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight fade-in-up visible stagger-1">
+          <span class="text-on-surface block">Mahmoud</span>
+          <span class="gradient-text block">Abdullah</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl mx-auto lg:mx-0 fade-in-up visible stagger-2">
+         A chemical engineering student passionate about pharmaceutical manufacturing, industrial processes,and petroleum engineering.
+        </p>
+        <!-- Social row -->
+        <div class="flex items-center gap-3 justify-center lg:justify-start mb-8 fade-in-up visible stagger-3">
+          <a aria-label="LinkedIn" class="social-btn" href="https://www.linkedin.com/in/mahmoud-abdullah-0771b13b0" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a aria-label="Instagram" class="social-btn" href="https://www.instagram.com/mahmoudlkhshn_2/" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a aria-label="Facebook" class="social-btn" href="https://web.facebook.com/mahmoud.a.elkheshen" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a aria-label="WhatsApp" class="social-btn" href="https://wa.me/201104716408" rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+          <a aria-label="Email" class="social-btn" href="mailto:ma7moudabdullah0@gmail.com">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start fade-in-up visible stagger-4">
+          <a class="cta-btn-primary bg-secondary-container text-on-secondary-container px-8 py-4 font-label-caps text-label-caps rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-all" href="#about">
+            Explore Profile
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </a>
+          <a class="border border-secondary/50 text-secondary px-8 py-4 font-label-caps text-label-caps rounded-lg hover:bg-secondary/10 hover:border-secondary transition-all flex items-center justify-center gap-2" href="#contact">
+            <span class="material-symbols-outlined text-[16px]">mail</span>
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Profile Image -->
+      <div class="flex flex-col items-center gap-6 fade-in-up visible stagger-3">
+        <div class="profile-frame">
+         <img alt="Mahmoud Abdullah - Chemical Engineering Student" class="profile-img" src="./mahmoud.png">
+        </div>
+        <div class="flex gap-4">
+          <div class="stat-card">
+            <div class="font-headline-sm text-headline-sm gradient-text font-bold">2029</div>
+            <div class="font-label-caps text-label-caps text-on-surface-variant" style="font-size:10px;">GRAD YEAR</div>
+          </div>
+          <div class="stat-card">
+            <div class="font-headline-sm text-headline-sm gradient-text font-bold">2+</div>
+            <div class="font-label-caps text-label-caps text-on-surface-variant" style="font-size:10px;">COURSES</div>
+          </div>
+          <div class="stat-card">
+            <div class="font-headline-sm text-headline-sm gradient-text font-bold">B1+</div>
+            <div class="font-label-caps text-label-caps text-on-surface-variant" style="font-size:10px;">ENGLISH</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 z-10">
+    <div class="w-px h-12 bg-gradient-to-b from-transparent via-secondary to-transparent animate-pulse"></div>
+    <span class="font-label-caps text-label-caps text-secondary" style="font-size:9px;">SCROLL</span>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== ABOUT & EDUCATION SECTION ===== -->
+<!-- NOTE (Client Modification): Added "Petroleum Engineering" to Target Sectors / Career Objective -->
+<section class="py-28 px-6 md:px-16 max-w-7xl mx-auto" id="about">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <div class="lg:col-span-7 fade-in-up">
+      <div class="mb-4 flex items-center gap-4">
+        <span class="w-10 h-px bg-secondary"></span>
+        <h2 class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em]">Biography</h2>
+      </div>
+      <h3 class="font-headline-md text-headline-md mb-6">Industrial Innovation Through <br/><span class="gradient-text">Engineering Rigor</span></h3>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 leading-relaxed">
+        Motivated Chemical Engineering student seeking a training opportunity to apply academic knowledge in a real-world industrial environment. Dedicated to mastering the complexities of pharmaceutical manufacturing, petroleum engineering, and process optimization. I bring a strong foundational understanding of thermodynamics, fluid dynamics, and chemical safety, coupled with a commitment to continuous professional development.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+        <div class="p-6 glass-card rounded-xl border-l-4 border-l-secondary cyan-glow-border">
+          <span class="font-mono-data text-mono-data text-secondary block mb-2">TARGET SECTORS</span>
+          <p class="font-body-md text-body-md">Pharmaceuticals, Petrochemicals, Petroleum Engineering &amp; Process Control.</p>
+        </div>
+        <div class="p-6 glass-card rounded-xl border-l-4 border-l-secondary cyan-glow-border">
+          <span class="font-mono-data text-mono-data text-secondary block mb-2">PROFESSIONAL FOCUS</span>
+          <p class="font-body-md text-body-md">Safety Compliance, Efficiency Simulation, &amp; QA/QC.</p>
+        </div>
+      </div>
+      <div class="flex gap-3 flex-wrap">
+        <div class="hex-badge">🇸🇦 Arabic — Native</div>
+        <div class="hex-badge">🇬🇧 English — Good</div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 fade-in-up stagger-2">
+      <div class="p-8 glass-card rounded-xl relative overflow-hidden h-full flex flex-col justify-between">
+        <div class="absolute top-4 right-4 font-mono-data text-mono-data text-outline-variant/30 text-xs">EDU_REF_2029</div>
+        <div class="flex items-start gap-5 mb-8">
+          <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0 border border-secondary/20">
+            <span class="material-symbols-outlined text-secondary text-3xl">school</span>
+          </div>
+          <div>
+            <h4 class="font-headline-sm text-headline-sm">Al Shorouk Academy</h4>
+            <p class="text-on-surface-variant font-body-md">Bachelor of Chemical Engineering</p>
+            <p class="text-secondary font-mono-data text-mono-data mt-1">Faculty of Engineering</p>
+          </div>
+        </div>
+        <div class="space-y-4 border-t border-outline-variant/20 pt-6">
+          <div class="flex justify-between items-center">
+            <span class="text-on-surface-variant font-label-caps text-label-caps uppercase">Graduation</span>
+            <span class="text-secondary font-mono-data">2029 (Expected)</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-on-surface-variant font-label-caps text-label-caps uppercase">Specialization</span>
+            <span class="text-on-surface font-body-md">Industrial Operations</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-on-surface-variant font-label-caps text-label-caps uppercase">Location</span>
+            <span class="text-on-surface font-body-md">Cairo, Egypt</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-on-surface-variant font-label-caps text-label-caps uppercase">Status</span>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#14d1ff] animate-pulse"></span>
+              <span class="text-on-surface font-body-md">Active Student</span>
+            </div>
+          </div>
+        </div>
+        <div class="absolute bottom-0 right-0 opacity-5 pointer-events-none">
+          <svg height="120" viewBox="0 0 120 120" width="120">
+            <circle cx="80" cy="80" fill="none" r="40" stroke="#00D1FF" stroke-width="2"/>
+            <circle cx="80" cy="80" fill="none" r="25" stroke="#00D1FF" stroke-width="1"/>
+            <circle cx="80" cy="80" fill="none" r="10" stroke="#00D1FF" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== SKILLS SECTION ===== -->
+<section class="py-28 bg-surface-container-lowest skills-bg" id="skills">
+  <div class="px-6 md:px-16 max-w-7xl mx-auto">
+    <div class="text-center mb-16 fade-in-up">
+      <span class="font-label-caps text-label-caps text-secondary tracking-[0.2em] uppercase block mb-3">Capabilities</span>
+      <h2 class="font-headline-md text-headline-md mb-3">Technical Proficiency</h2>
+      <p class="text-on-surface-variant max-w-xl mx-auto font-body-md">Bridging theoretical chemical principles with practical engineering solutions.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Engineering Core -->
+      <div class="fade-in-up">
+        <div class="flex items-center gap-3 mb-7">
+          <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center border border-secondary/20">
+            <span class="material-symbols-outlined text-secondary text-xl">precision_manufacturing</span>
+          </div>
+          <h3 class="font-headline-sm text-headline-sm">Engineering Core</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="font-mono-data text-mono-data text-outline-variant text-xs">01</span><span class="font-body-md text-body-md">Process Engineering</span></div>
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="font-mono-data text-mono-data text-outline-variant text-xs">02</span><span class="font-body-md text-body-md">Mass &amp; Energy Balance</span></div>
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="font-mono-data text-mono-data text-outline-variant text-xs">03</span><span class="font-body-md text-body-md">Chemical Process Design</span></div>
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="font-mono-data text-mono-data text-outline-variant text-xs">04</span><span class="font-body-md text-body-md">Heat Transfer</span></div>
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="font-mono-data text-mono-data text-outline-variant text-xs">05</span><span class="font-body-md text-body-md">Fluid Mechanics</span></div>
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="font-mono-data text-mono-data text-outline-variant text-xs">06</span><span class="font-body-md text-body-md">Quality Control</span></div>
+        </div>
+      </div>
+      <!-- Soft Skills -->
+      <div class="fade-in-up stagger-2">
+        <div class="flex items-center gap-3 mb-7">
+          <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center border border-secondary/20">
+            <span class="material-symbols-outlined text-secondary text-xl">hub</span>
+          </div>
+          <h3 class="font-headline-sm text-headline-sm">Soft Skills &amp; Tools</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="material-symbols-outlined text-secondary text-[16px]">description</span><span class="font-body-md text-body-md">Microsoft Office</span></div>
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="material-symbols-outlined text-secondary text-[16px]">groups</span><span class="font-body-md text-body-md">Teamwork</span></div>
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="material-symbols-outlined text-secondary text-[16px]">chat</span><span class="font-body-md text-body-md">Communication</span></div>
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="material-symbols-outlined text-secondary text-[16px]">psychology</span><span class="font-body-md text-body-md">Problem Solving</span></div>
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="material-symbols-outlined text-secondary text-[16px]">timeline</span><span class="font-body-md text-body-md">Time Management</span></div>
+          <div class="p-4 glass-card rounded-lg cyan-glow-border flex items-center gap-4"><span class="material-symbols-outlined text-secondary text-[16px]">auto_stories</span><span class="font-body-md text-body-md">Fast Learner</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== TRAINING / COURSES SECTION ===== -->
+<!-- NOTE (Client Modifications): Added 2 new training entries -->
+<section class="py-28 px-6 md:px-16 max-w-7xl mx-auto" id="courses">
+  <div class="text-center mb-16 fade-in-up">
+    <span class="font-label-caps text-label-caps text-secondary tracking-[0.2em] uppercase block mb-3">Certifications</span>
+    <h2 class="font-headline-md text-headline-md mb-3">Specialized Training</h2>
+    <p class="text-on-surface-variant max-w-xl mx-auto font-body-md">Professional development courses and real-world industrial training that build on core engineering foundations.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Original Card 1 -->
+    <div class="course-card flex items-center gap-6 p-6 glass-card rounded-xl cyan-glow-border fade-in-up">
+      <div class="w-16 h-16 bg-secondary/10 flex items-center justify-center rounded-2xl flex-shrink-0 border border-secondary/15">
+        <span class="material-symbols-outlined text-secondary text-3xl">medication</span>
+      </div>
+      <div>
+        <div class="hex-badge mb-2" style="display:inline-block">PHARM-MFG</div>
+        <h4 class="font-headline-sm text-headline-sm mb-1">Introduction to Pharmaceutical Manufacturing</h4>
+        <p class="text-on-surface-variant text-body-md">Core principles of GMP and sterile processing environments.</p>
+      </div>
+    </div>
+
+    <!-- Original Card 2 -->
+    <div class="course-card flex items-center gap-6 p-6 glass-card rounded-xl cyan-glow-border fade-in-up stagger-2">
+      <div class="w-16 h-16 bg-secondary/10 flex items-center justify-center rounded-2xl flex-shrink-0 border border-secondary/15">
+        <span class="material-symbols-outlined text-secondary text-3xl">health_and_safety</span>
+      </div>
+      <div>
+        <div class="hex-badge mb-2" style="display:inline-block">OSH-BASICS</div>
+        <h4 class="font-headline-sm text-headline-sm mb-1">Occupational Safety and Health Basics</h4>
+        <p class="text-on-surface-variant text-body-md">Advanced training in industrial hazards and protective systems.</p>
+      </div>
+    </div>
+
+    <!-- Original Card 3 -->
+    <div class="course-card flex items-center gap-6 p-6 glass-card rounded-xl cyan-glow-border fade-in-up stagger-3">
+      <div class="w-16 h-16 bg-secondary/10 flex items-center justify-center rounded-2xl flex-shrink-0 border border-secondary/15">
+        <span class="material-symbols-outlined text-secondary text-3xl">science</span>
+      </div>
+      <div>
+        <div class="hex-badge mb-2" style="display:inline-block">CHE-PROC</div>
+        <h4 class="font-headline-sm text-headline-sm mb-1">Fundamentals of Chemical Engineering Processes</h4>
+        <p class="text-on-surface-variant text-body-md">Core chemical engineering process fundamentals and applications.</p>
+      </div>
+    </div>
+
+    <!-- Original Card 4 -->
+    <div class="course-card flex items-center gap-6 p-6 glass-card rounded-xl cyan-glow-border fade-in-up stagger-4">
+      <div class="w-16 h-16 bg-secondary/10 flex items-center justify-center rounded-2xl flex-shrink-0 border border-secondary/15">
+        <span class="material-symbols-outlined text-secondary text-3xl">table_chart</span>
+      </div>
+      <div>
+        <div class="hex-badge mb-2" style="display:inline-block">EXCEL-ENG</div>
+        <h4 class="font-headline-sm text-headline-sm mb-1">Excel for Engineering Students</h4>
+        <p class="text-on-surface-variant text-body-md">Data analysis and engineering calculations using Microsoft Excel.</p>
+      </div>
+    </div>
+
+    <!-- NEW: Talaat Mostafa Group -->
+    <div class="course-card flex items-center gap-6 p-6 glass-card rounded-xl cyan-glow-border fade-in-up stagger-1">
+      <div class="w-16 h-16 bg-secondary/10 flex items-center justify-center rounded-2xl flex-shrink-0 border border-secondary/15">
+        <span class="material-symbols-outlined text-secondary text-3xl">water_drop</span>
+      </div>
+      <div>
+        <div class="hex-badge mb-2" style="display:inline-block">TMG-WATER</div>
+        <h4 class="font-headline-sm text-headline-sm mb-1">Water Treatment Training</h4>
+        <p class="text-on-surface-variant text-body-md">Practical industrial water treatment training at <strong class="text-on-surface">Talaat Mostafa Group</strong> — covering filtration, purification, and treatment processes.</p>
+      </div>
+    </div>
+
+    <!-- NEW: National Research Centre & Metals Research Institute -->
+    <div class="course-card flex items-center gap-6 p-6 glass-card rounded-xl cyan-glow-border fade-in-up stagger-2">
+      <div class="w-16 h-16 bg-secondary/10 flex items-center justify-center rounded-2xl flex-shrink-0 border border-secondary/15">
+        <span class="material-symbols-outlined text-secondary text-3xl">biotech</span>
+      </div>
+      <div>
+        <div class="hex-badge mb-2" style="display:inline-block">NRC-METALS</div>
+        <h4 class="font-headline-sm text-headline-sm mb-1">Research &amp; Metals Institute Training</h4>
+        <p class="text-on-surface-variant text-body-md">Specialized training at <strong class="text-on-surface">National Research Centre &amp; Metals Research Institute</strong> — materials analysis and applied research methodologies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section class="py-28 px-6 md:px-16 max-w-7xl mx-auto" id="contact">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="fade-in-up">
+      <span class="font-label-caps text-label-caps text-secondary tracking-[0.2em] uppercase block mb-4">Get In Touch</span>
+      <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6">
+        Let's Discuss<br/><span class="gradient-text">Industrial Solutions</span>
+      </h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+        Open to internship opportunities, research collaborations, and professional networking within the chemical engineering, pharmaceutical, and petroleum sectors.
+      </p>
+      <div class="space-y-5">
+        <a class="flex items-center gap-4 group" href="mailto:ma7moudabdullah0@gmail.com">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors border border-secondary/15">
+            <span class="material-symbols-outlined text-secondary">mail</span>
+          </div>
+          <div>
+            <p class="text-label-caps font-label-caps text-outline uppercase text-xs">Direct Email</p>
+            <p class="font-body-md text-body-md group-hover:text-secondary transition-colors">ma7moudabdullah0@gmail.com</p>
+          </div>
+        </a>
+        <a class="flex items-center gap-4 group" href="https://wa.me/201104716408" rel="noopener" target="_blank">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors border border-secondary/15">
+            <span class="material-symbols-outlined text-secondary">phone</span>
+          </div>
+          <div>
+            <p class="text-label-caps font-label-caps text-outline uppercase text-xs">WhatsApp</p>
+            <p class="font-body-md text-body-md group-hover:text-secondary transition-colors">+20 110 471 6408</p>
+          </div>
+        </a>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center border border-secondary/15">
+            <span class="material-symbols-outlined text-secondary">location_on</span>
+          </div>
+          <div>
+            <p class="text-label-caps font-label-caps text-outline uppercase text-xs">Location</p>
+            <p class="font-body-md text-body-md">Cairo, Egypt 🇪🇬</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-3 mt-8">
+        <a aria-label="LinkedIn" class="social-btn" href="https://www.linkedin.com/in/mahmoud-abdullah-0771b13b0" rel="noopener" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a aria-label="Instagram" class="social-btn" href="https://www.instagram.com/mahmoudlkhshn_2/" rel="noopener" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        <a aria-label="Facebook" class="social-btn" href="https://web.facebook.com/mahmoud.a.elkheshen" rel="noopener" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a aria-label="WhatsApp" class="social-btn" href="https://wa.me/201104716408" rel="noopener" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+ <div class="p-8 glass-card rounded-2xl relative overflow-hidden fade-in-up stagger-2">
+  
+  <div class="absolute -top-8 -right-8 w-32 h-32 opacity-5 pointer-events-none">
+    <svg viewBox="0 0 100 100">
+      <circle cx="50" cy="50" fill="none" r="45" stroke="#00D1FF" stroke-width="2"/>
+      <circle cx="50" cy="50" fill="none" r="30" stroke="#00D1FF" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <h3 class="font-headline-sm text-headline-sm mb-6">
+    Send a Message
+  </h3>
+
+  <form 
+    action="https://api.web3forms.com/submit"
+    method="POST"
+    class="space-y-5"
+  >
+
+    <!-- Web3Forms Access Key -->
+    <input 
+      type="hidden" 
+      name="access_key" 
+      value="ac4b5a87-04e1-4017-8a38-23c848286d7a"
+    >
+
+    <!-- Optional -->
+    <input type="hidden" name="subject" value="New Portfolio Message">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+      <div class="space-y-2">
+        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase text-xs">
+          Your Name
+        </label>
+
+        <input
+          class="w-full bg-surface-container border-b-2 border-outline-variant focus:border-secondary transition-colors px-4 py-3 outline-none font-body-md rounded-t-md"
+          name="name"
+          placeholder="Enter name"
+          type="text"
+          required
+        />
+      </div>
+
+      <div class="space-y-2">
+        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase text-xs">
+          Email
+        </label>
+
+        <input
+          class="w-full bg-surface-container border-b-2 border-outline-variant focus:border-secondary transition-colors px-4 py-3 outline-none font-body-md rounded-t-md"
+          name="email"
+          placeholder="email@example.com"
+          type="email"
+          required
+        />
+      </div>
+
+    </div>
+
+    <div class="space-y-2">
+      <label class="font-label-caps text-label-caps text-on-surface-variant uppercase text-xs">
+        Subject
+      </label>
+
+      <input
+        class="w-full bg-surface-container border-b-2 border-outline-variant focus:border-secondary transition-colors px-4 py-3 outline-none font-body-md rounded-t-md"
+        name="user_subject"
+        placeholder="Internship / Collaboration"
+        type="text"
+      />
+    </div>
+
+    <div class="space-y-2">
+      <label class="font-label-caps text-label-caps text-on-surface-variant uppercase text-xs">
+        Message
+      </label>
+
+      <textarea
+        class="w-full bg-surface-container border-b-2 border-outline-variant focus:border-secondary transition-colors px-4 py-3 outline-none resize-none font-body-md rounded-t-md"
+        name="message"
+        placeholder="Describe your project or inquiry..."
+        rows="4"
+        required
+      ></textarea>
+    </div>
+
+    <button
+      class="cta-btn-primary w-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps py-4 rounded-lg hover:opacity-90 transition-all flex items-center justify-center gap-2"
+      type="submit"
+    >
+      Send Message
+
+      <span class="material-symbols-outlined text-[18px]">
+        send
+      </span>
+    </button>
+
+  </form>
+
+</div>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/10">
+  <div class="max-w-7xl mx-auto px-6 md:px-16 py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="text-center md:text-left">
+        <div class="font-headline-sm text-headline-sm font-bold mb-2">
+          <span class="gradient-text">Mahmoud</span> Abdullah
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Chemical Engineering Student · Al Shorouk Academy · Cairo, Egypt</p>
+        <p class="font-mono-data text-mono-data text-outline-variant mt-2 text-xs">© 2025 Mahmoud Abdullah. All rights reserved.</p>
+        <p class="font-mono-data text-outline-variant mt-3 text-sm text-center">
+  👨‍💻 
+  <span class="text-base font-semibold text-white/80">
+    Designed & Developed by
+  </span>
+  <a 
+    href="https://www.linkedin.com/in/ahmed-shawki-8538042b0/" 
+    target="_blank" 
+    class="ml-1 font-extrabold text-lg text-cyan-300 underline
+           transition hover:text-cyan-200 
+           hover:drop-shadow-[0_0_12px_#22d3ee]
+           hover:scale-105 inline-block"
+  >
+    Ahmed Shawki
+  </a>
+</p>         
+      </div>
+      <div class="flex flex-col items-center md:items-end gap-4">
+        <div class="flex gap-3">
+          <a aria-label="LinkedIn" class="social-btn" href="https://www.linkedin.com/in/mahmoud-abdullah-0771b13b0" rel="noopener" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a aria-label="Instagram" class="social-btn" href="https://www.instagram.com/mahmoudlkhshn_2/" rel="noopener" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+          <a aria-label="Facebook" class="social-btn" href="https://web.facebook.com/mahmoud.a.elkheshen" rel="noopener" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a aria-label="WhatsApp" class="social-btn" href="https://wa.me/201104716408" rel="noopener" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+          <a aria-label="Email" class="social-btn" href="mailto:ma7moudabdullah0@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+        </div>
+        <br>
+        <div class="flex gap-6">
+          <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors text-xs" href="#home">HOME</a>
+          <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors text-xs" href="#about">ABOUT</a>
+          <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors text-xs" href="#skills">SKILLS</a>
+          <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors text-xs" href="#courses">TRAINING</a>
+          <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-secondary transition-colors text-xs" href="#contact">CONTACT</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- External JavaScript -->
+<script src="js/script.js"></script>
+</body>
+</html>

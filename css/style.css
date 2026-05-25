@@ -1,0 +1,367 @@
+/* =====================================================
+   Mahmoud Abdullah | Chemical Engineering Portfolio
+   External Stylesheet — css/style.css
+   ===================================================== */
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --cyan: #00D1FF;
+  --cyan-dim: rgba(0,209,255,0.15);
+  --navy: #0a192f;
+  --transition-speed: 0.5s;
+}
+
+/* ===== GLOBAL ===== */
+* { scroll-behavior: smooth; }
+
+/* ===== THEME TRANSITIONS ===== */
+body, header, section, footer, .glass-card, input, textarea, button {
+  transition:
+    background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease,
+    border-color var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
+}
+
+/* ===== LIGHT MODE OVERRIDES ===== */
+html.light {
+  --bg: #f0f4f8;
+  --surface: #ffffff;
+  --surface-low: #e8edf3;
+  --text-primary: #0d1c32;
+  --text-secondary: #0099bb;
+  --text-muted: #4a5568;
+  --outline: #cbd5e0;
+  --card-bg: rgba(255,255,255,0.7);
+  --card-border: rgba(0,0,0,0.08);
+  --header-bg: rgba(240,244,248,0.9);
+}
+html.light body { background-color: #f0f4f8; color: #0d1c32; }
+html.light header { background-color: rgba(240,244,248,0.92) !important; border-color: rgba(0,0,0,0.08); }
+html.light .glass-card { background: rgba(255,255,255,0.75); border-color: rgba(0,0,0,0.1); }
+html.light .text-on-surface { color: #0d1c32 !important; }
+html.light .text-on-surface-variant { color: #4a6080 !important; }
+html.light .text-secondary { color: #0088aa !important; }
+html.light .secondary-container-text { color: #003543 !important; }
+html.light .bg-background { background-color: #f0f4f8 !important; }
+html.light .bg-surface-container-lowest { background-color: #e4eaf1 !important; }
+html.light .bg-primary-container\/30 { background-color: rgba(180,210,230,0.3) !important; }
+html.light .molecule-bg { background-image: radial-gradient(circle at 2px 2px, rgba(0,100,150,0.08) 1px, transparent 0); }
+html.light .border-outline-variant { border-color: rgba(0,0,0,0.12) !important; }
+html.light .bg-surface-container { background-color: rgba(220,230,240,0.8) !important; }
+html.light nav a.text-on-surface-variant { color: #4a6080 !important; }
+html.light .text-outline { color: #5a7090 !important; }
+html.light .text-outline-variant { color: #8aabcc !important; }
+html.light .bg-secondary-container { background-color: #00c4ef !important; }
+html.light .particle { background: rgba(0,150,200,0.15) !important; border-color: rgba(0,150,200,0.3) !important; }
+html.light .skills-bg { background-color: #e4eaf1 !important; }
+html.light footer { background-color: #dce5ef !important; }
+html.light .gradient-text {
+  background: linear-gradient(135deg, #005f80 0%, #00a8cc 50%, #0044aa 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+/* ===== GLASSMORPHISM ===== */
+.glass-card {
+  background: rgba(22, 38, 62, 0.4);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.cyan-glow-border {
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.cyan-glow-border:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px rgba(0,209,255,0.18);
+  transform: translateY(-2px);
+}
+
+/* ===== MOLECULE BACKGROUND ===== */
+.molecule-bg {
+  background-image: radial-gradient(circle at 2px 2px, rgba(185,199,228,0.06) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* ===== PARTICLE CANVAS ===== */
+#particle-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== PROFILE IMAGE ===== */
+.profile-frame {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+}
+.profile-frame::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--cyan), transparent 60%, var(--cyan) 100%);
+  animation: spin-border 6s linear infinite;
+  z-index: 0;
+}
+.profile-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(0,209,255,0.35), 0 0 80px rgba(0,209,255,0.12);
+  z-index: 2;
+  pointer-events: none;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+.profile-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  border: 3px solid rgba(0,209,255,0.3);
+  background: rgba(10,25,47,0.8);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.profile-frame:hover .profile-img {
+  transform: scale(1.04);
+  box-shadow: 0 0 60px rgba(0,209,255,0.5);
+}
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+@keyframes spin-border {
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 40px rgba(0,209,255,0.35), 0 0 80px rgba(0,209,255,0.12); }
+  50%       { box-shadow: 0 0 60px rgba(0,209,255,0.55), 0 0 100px rgba(0,209,255,0.22); }
+}
+@keyframes float-mol {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+  33%       { transform: translateY(-18px) rotate(120deg); opacity: 0.7; }
+  66%       { transform: translateY(8px) rotate(240deg); opacity: 0.3; }
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% center; }
+  50%       { background-position: 100% center; }
+}
+@keyframes spin-loader {
+  to { transform: rotate(360deg); }
+}
+
+/* ===== FLOATING MOLECULES ===== */
+.molecule {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  animation: float-mol 8s ease-in-out infinite;
+}
+
+/* ===== SCROLL FADE-IN ===== */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* ===== ANIMATED GRADIENT TEXT ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #b9c7e4 0%, var(--cyan) 50%, #adc7ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+/* ===== NAVBAR SCROLL EFFECT ===== */
+header.scrolled {
+  border-bottom-color: rgba(0,209,255,0.15);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+html.light header.scrolled {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== THEME TOGGLE BUTTON ===== */
+.theme-toggle {
+  width: 52px;
+  height: 28px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(0,209,255,0.3);
+  border-radius: 14px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { border-color: var(--cyan); background: rgba(0,209,255,0.1); }
+.theme-toggle .toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--cyan);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+html.light .theme-toggle .toggle-thumb { transform: translateX(24px); background: #ffb830; }
+html.light .theme-toggle { background: rgba(255,184,48,0.15); border-color: rgba(255,184,48,0.4); }
+
+/* ===== SOCIAL ICON BUTTONS ===== */
+.social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,209,255,0.25);
+  background: rgba(0,209,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.social-btn:hover {
+  border-color: var(--cyan);
+  background: rgba(0,209,255,0.18);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,209,255,0.2);
+}
+.social-btn svg { width: 20px; height: 20px; fill: #a6e6ff; transition: fill 0.3s; }
+.social-btn:hover svg { fill: var(--cyan); }
+html.light .social-btn svg { fill: #007a99; }
+html.light .social-btn:hover svg { fill: #005f80; }
+
+/* ===== HERO CTA BUTTON ANIMATION ===== */
+.cta-btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.cta-btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.cta-btn-primary:hover::before { transform: translateX(100%); }
+
+/* ===== PAGE LOADER ===== */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: #080f1a;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.page-loader.hidden { opacity: 0; visibility: hidden; }
+.loader-ring {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(0,209,255,0.15);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin-loader 0.9s linear infinite;
+}
+
+/* ===== MATERIAL ICONS ===== */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-family: "Material Symbols Outlined", sans-serif;
+}
+
+/* ===== ANIMATED UNDERLINE NAV ===== */
+nav a { position: relative; }
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--cyan);
+  transition: width 0.3s ease;
+}
+nav a:hover::after, nav a.active::after { width: 100%; }
+
+/* ===== COURSE CARD HOVER ===== */
+.course-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,209,255,0.12);
+}
+
+/* ===== SECTION DIVIDER ===== */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,209,255,0.3), transparent);
+  margin: 0;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #080f1a; }
+::-webkit-scrollbar-thumb { background: rgba(0,209,255,0.35); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,209,255,0.6); }
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.mobile-menu.open { max-height: 400px; }
+
+/* ===== HERO STAT CARD ===== */
+.stat-card {
+  border: 1px solid rgba(0,209,255,0.15);
+  background: rgba(10,25,47,0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.stat-card:hover { border-color: var(--cyan); transform: translateY(-4px); }
+html.light .stat-card { background: rgba(255,255,255,0.6); border-color: rgba(0,150,200,0.2); }
+
+/* ===== HEX BADGE ===== */
+.hex-badge {
+  background: rgba(0,209,255,0.1);
+  border: 1px solid rgba(0,209,255,0.25);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--cyan);
+  font-family: "Geist", monospace;
+  font-weight: 600;
+}
